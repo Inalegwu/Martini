@@ -1,6 +1,5 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
-import { CreateTodo } from "./create-todo.entity";
-import { Todo } from "./todo.entity";
+import { CreateTodo, Todo } from "./todo.entity";
 import { TodoService } from "./todo.service";
 
 

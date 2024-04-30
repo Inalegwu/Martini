@@ -1,12 +1,11 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/prisma.service";
-import { CreateTodo } from "./create-todo.entity";
-import type { Todo } from "./todo.entity";
+import type { CreateTodo, Todo } from "./todo.entity";
 
 @Injectable()
 export class TodoService {
 
-constructor(private readonly prisma:PrismaService){}
+  constructor(private readonly prisma:PrismaService){}
 
   async findAll(): Promise<Todo[]> {
     const todos=await this.prisma.todo.findMany();

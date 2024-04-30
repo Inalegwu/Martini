@@ -1,5 +1,6 @@
-import { Field, ObjectType } from "@nestjs/graphql";
+import { Field, InputType, ObjectType } from "@nestjs/graphql";
 import { Todo as PrismaTodo } from "@prisma/client";
+
 
 @ObjectType()
 export class Todo implements PrismaTodo{
@@ -16,4 +17,18 @@ export class Todo implements PrismaTodo{
     })
     isDone: boolean;
 
+}
+
+
+
+@InputType()
+export class CreateTodo implements Omit<Todo,"id">{
+
+    @Field({nullable:true})
+    content: string;
+
+    @Field({
+        defaultValue:false
+    })
+    isDone:boolean
 }
